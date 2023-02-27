@@ -57,7 +57,8 @@ router.delete('/:id', validateActionId, (req, res, next) => {
     // time out happens, test when get method is fixed
     // take away async await or add to promise
     Actions.remove(req.params.id)
-    res.json({ message: 'project deleted'})
+    .then(res.json({ message: 'project deleted'}))
+    .catch(next)
 })
 
 
